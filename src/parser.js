@@ -94,8 +94,9 @@ function scheduleHtmlParser(html) {
                 const { startSection, endSection, startWeek, endWeek } =
                     // @ts-ignore
                     Object.fromEntries(Object.entries(match.groups).map(v => ([v[0], Number(v[1])])));
-                const classType = (match?.groups?.classType || "").replace(/[\(|\)]+/g, "");
-                console.log("glyphicon-time", match, classType);
+                // @ts-ignore
+                const classType = (match.groups.classType || "").replace(/[\(|\)]+/g, "");
+                // console.log("glyphicon-time", match, classType);
 
                 const sections = Array.from({ length: endSection - startSection + 1 }).map((_, i) => i + startSection);
                 const weeks = Array.from({ length: endWeek - startWeek + 1 }).map((_, i) => i + startWeek);
